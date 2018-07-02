@@ -1,5 +1,5 @@
 {
-    "name": "WebSK php-utils",
+    "name": "websk/php-utils",
     "autoload": {
         "psr-4": { "": "src/" }
     }
