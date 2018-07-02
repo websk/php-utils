@@ -1,0 +1,6 @@
+{
+    "name": "WebSK php-utils",
+    "autoload": {
+        "psr-4": { "": "src/" }
+    }
+}
