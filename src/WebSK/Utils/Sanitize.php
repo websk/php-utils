@@ -43,6 +43,7 @@ class Sanitize
      */
     public static function sanitizeSqlColumnName(string $column_name){
         $column_name = preg_replace("/[^a-zA-Z0-9_]+/", "", $column_name);
+
         return $column_name;
     }
 }
