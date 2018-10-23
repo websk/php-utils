@@ -1,6 +1,8 @@
 {
-    "name": "websk/php-utils",
-    "autoload": {
-        "psr-4": { "": "src/" }
+  "name": "websk/php-utils",
+  "autoload": {
+    "psr-4": {
+      "": "src/"
     }
+  }
 }
