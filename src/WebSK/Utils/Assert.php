@@ -2,9 +2,18 @@
 
 namespace Websk\Utils;
 
+/**
+ * Class Assert
+ * @package Websk\Utils
+ */
 class Assert
 {
-    public static function assert($value, $message = '')
+    /**
+     * @param $value
+     * @param string $message
+     * @throws \Exception
+     */
+    public static function assert($value, string $message = '')
     {
         if ($value == false) {
             if ($message == '') {
