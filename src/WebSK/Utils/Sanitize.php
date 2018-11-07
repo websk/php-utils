@@ -29,11 +29,15 @@ class Sanitize
     }
 
     /**
-     * @param string $value
+     * @param null|string $value
      * @return string
      */
-    public static function sanitizeAttrValue(string $value)
+    public static function sanitizeAttrValue(?string $value)
     {
+        if (is_null($value)) {
+            return '';
+        }
+
         return htmlspecialchars($value, ENT_QUOTES | ENT_HTML5);
     }
 
