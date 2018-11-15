@@ -83,4 +83,12 @@ class HTTP
     const HEADER_CACHE_CONTROL = 'Cache-Control';
     const HEADER_EXPIRES = 'Expires';
     const HEADER_PRAGMA = 'Pragma';
+
+    public static function cacheHeaders()
+    {
+        $cache_sec = 60;
+
+        header(self::HEADER_EXPIRES . ' ' . gmdate('D, d M Y H:i:s', time() + $cache_sec) . ' GMT');
+        header(self::HEADER_CACHE_CONTROL . ' max-age=' . $cache_sec . ', public');
+    }
 }
