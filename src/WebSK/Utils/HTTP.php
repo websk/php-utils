@@ -80,15 +80,17 @@ class HTTP
     const HEADER_ORIGIN = 'Origin';
     const HEADER_CONTENT_TYPE = 'Content-Type';
     const HEADER_CONTENT_DISPOSITION = 'Content-Disposition';
+    const HEADER_CONTENT_LENGTH = 'Content-Length';
     const HEADER_CACHE_CONTROL = 'Cache-Control';
     const HEADER_EXPIRES = 'Expires';
     const HEADER_PRAGMA = 'Pragma';
+    const HEADER_ACCEPT_RANGES = 'Accept-Ranges';
 
     public static function cacheHeaders()
     {
         $cache_sec = 60;
 
-        header(self::HEADER_EXPIRES . ' ' . gmdate('D, d M Y H:i:s', time() + $cache_sec) . ' GMT');
-        header(self::HEADER_CACHE_CONTROL . ' max-age=' . $cache_sec . ', public');
+        header(self::HEADER_EXPIRES . ': ' . gmdate('D, d M Y H:i:s', time() + $cache_sec) . ' GMT');
+        header(self::HEADER_CACHE_CONTROL . ': max-age=' . $cache_sec . ', public');
     }
 }
