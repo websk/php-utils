@@ -1,10 +1,10 @@
 <?php
 
-namespace Websk\Utils;
+namespace WebSK\Utils;
 
 /**
  * Class FullObjectId
- * @package Websk\Utils
+ * @package WebSK\Utils
  */
 class FullObjectId
 {

@@ -2,8 +2,8 @@
 
 namespace WebSK\Utils;
 
-use WebSK\Skif\ConfWrapper;
-use Websk\Skif\DBWrapper;
+use WebSK\Config\ConfWrapper;
+use WebSK\DB\DBWrapper;
 
 /**
  * Class Url
