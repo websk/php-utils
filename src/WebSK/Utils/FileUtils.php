@@ -1,12 +1,12 @@
 <?php
 
-namespace Websk\Utils;
+namespace WebSK\Utils;
 
-use WebSK\Skif\ConfWrapper;
+use WebSK\Config\ConfWrapper;
 
 /**
  * Class FileUtils
- * @package Skif
+ * @package WebSK\Utils
  */
 class FileUtils
 {

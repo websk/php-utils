@@ -1,10 +1,10 @@
 <?php
 
-namespace Websk\Utils;
+namespace WebSK\Utils;
 
 /**
  * Class Messages
- * @package WebSK\Skif
+ * @package WebSK\Utils
  */
 class Messages
 {

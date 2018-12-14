@@ -1,6 +1,6 @@
 <?php
 
-namespace Websk\Utils;
+namespace WebSK\Utils;
 
 /**
  * Class Assert

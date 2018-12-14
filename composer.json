@@ -1,5 +1,8 @@
 {
   "name": "websk/php-utils",
+  "require": {
+    "websk/php-config": "1.0.*"
+  },
   "autoload": {
     "psr-4": {
       "": "src/"
