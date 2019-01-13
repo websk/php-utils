@@ -9,10 +9,10 @@ namespace WebSK\Utils;
 class Sanitize
 {
     /**
-     * @param string $value
+     * @param null|string $value
      * @return string
      */
-    public static function sanitizeTagContent(string $value)
+    public static function sanitizeTagContent(?string $value)
     {
         $value = htmlspecialchars($value);
 
