@@ -4,7 +4,7 @@ namespace WebSK\Utils;
 
 /**
  * Class Assert
- * @package Websk\Utils
+ * @package WebSK\Utils
  */
 class Assert
 {
