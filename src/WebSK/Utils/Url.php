@@ -14,7 +14,7 @@ class Url
      */
     public static function getUriNoQueryString()
     {
-        $parts = array_key_exists('REQUEST_URI', $_SERVER) ? explode('?', $_SERVER['REQUEST_URI']) : '';
+        $parts = array_key_exists('REQUEST_URI', $_SERVER) ? explode('?', $_SERVER['REQUEST_URI']) : [];
         $parts_second = explode('&', $parts[0]);
         $uri = $parts_second[0] ?? '';
 
