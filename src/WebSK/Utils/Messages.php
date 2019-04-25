@@ -18,6 +18,10 @@ class Messages
     {
         $cookie_value_arr = self::getMessagesArr();
 
+        if (!isset($cookie_value_arr[$key])) {
+            $cookie_value_arr[$key] = [];
+        }
+
         if (!is_array($cookie_value_arr[$key])) {
             $cookie_value_arr[$key] = [];
         }
@@ -62,7 +66,7 @@ class Messages
 
         $messages = '';
         foreach ($cookie_value_arr as $key => $messages_arr) {
-            if (is_array($messages_arr)) {
+            if (!is_array($messages_arr)) {
                 continue;
             }
 
@@ -71,9 +75,9 @@ class Messages
                 $messages .= $message . '<br>';
             }
             $messages .= "</p>";
-
-            setcookie(self::MESSAGES_COOKIE_NAME , '', time() - 3600, '/');
         }
+
+        setcookie(self::MESSAGES_COOKIE_NAME , '', time() - 3600, '/');
 
         return $messages;
     }
