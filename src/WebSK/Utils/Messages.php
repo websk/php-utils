@@ -96,6 +96,9 @@ class Messages
         }
 
         $value_serialize = $_COOKIE[self::MESSAGES_COOKIE_NAME];
+
+        $value_serialize = preg_replace('!s:(\d+):"(.*?)";!e', "'s:'.strlen('$2').':\"$2\";'", $value_serialize);
+
         $value_arr = unserialize($value_serialize);
 
         return $value_arr;
