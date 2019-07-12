@@ -8,27 +8,31 @@ namespace WebSK\Utils;
  */
 class Messages
 {
-    const MESSAGES_COOKIE_NAME = 'messages';
+    const MESSAGES_COOKIE_NAME = 'websk_flash_messages';
+
+    const MESSAGE_TYPE_ERROR = 'danger';
+    const MESSAGE_TYPE_WARNING = 'warning';
+    const MESSAGE_TYPE_SUCCESS = 'success';
 
     /**
-     * @param string $key
+     * @param string $message_type
      * @param string $value
      */
-    protected static function setMessageValue(string $key, string $value)
+    protected static function setMessageValue(string $message_type, string $value)
     {
-        $cookie_value_arr = self::getMessagesArr();
+        $flash_messages_values_from_cookie_arr = self::getMessagesValuesFromCookieArr();
 
-        if (!isset($cookie_value_arr[$key])) {
-            $cookie_value_arr[$key] = [];
+        if (!isset($flash_messages_values_from_cookie_arr[$message_type])) {
+            $flash_messages_values_from_cookie_arr[$message_type] = [];
         }
 
-        if (!is_array($cookie_value_arr[$key])) {
-            $cookie_value_arr[$key] = [];
+        if (!is_array($flash_messages_values_from_cookie_arr[$message_type])) {
+            $flash_messages_values_from_cookie_arr[$message_type] = [];
         }
 
-        array_push($cookie_value_arr[$key], $value);
+        array_push($flash_messages_values_from_cookie_arr[$message_type], $value);
 
-        $value_serialize = serialize($cookie_value_arr);
+        $value_serialize = json_encode($flash_messages_values_from_cookie_arr);
 
         setcookie(self::MESSAGES_COOKIE_NAME , $value_serialize, 0, '/');
     }
@@ -38,7 +42,7 @@ class Messages
      */
     public static function setError(string $message)
     {
-        self::setMessageValue('danger', $message);
+        self::setMessageValue(self::MESSAGE_TYPE_ERROR, $message);
     }
 
     /**
@@ -46,7 +50,7 @@ class Messages
      */
     public static function setWarning(string $message)
     {
-        self::setMessageValue('warning', $message);
+        self::setMessageValue(self::MESSAGE_TYPE_WARNING, $message);
     }
 
     /**
@@ -54,7 +58,7 @@ class Messages
      */
     public static function setMessage($message)
     {
-        self::setMessageValue('success', $message);
+        self::setMessageValue(self::MESSAGE_TYPE_SUCCESS, $message);
     }
 
     /**
@@ -62,18 +66,16 @@ class Messages
      */
     public static function renderMessages()
     {
-        $cookie_value_arr = self::getMessagesArr();
+        $flash_messages_values_from_cookie_arr = self::getMessagesValuesFromCookieArr();
 
         $messages = '';
-        foreach ($cookie_value_arr as $key => $messages_arr) {
+        foreach ($flash_messages_values_from_cookie_arr as $message_type => $messages_arr) {
             if (!is_array($messages_arr)) {
                 continue;
             }
 
-            $messages .= '<p class="alert alert-' . $key . ' flash-' . $key . '">';
-            foreach ($messages_arr as $message) {
-                $messages .= $message . '<br>';
-            }
+            $messages .= '<p class="alert alert-' . $message_type . ' flash-' . $message_type . '">';
+            $messages .= implode('<br>', $messages_arr);
             $messages .= "</p>";
         }
 
@@ -85,7 +87,7 @@ class Messages
     /**
      * @return array
      */
-    protected static function getMessagesArr()
+    protected static function getMessagesValuesFromCookieArr()
     {
         if (!isset($_COOKIE)) {
             return [];
@@ -96,10 +98,7 @@ class Messages
         }
 
         $value_serialize = $_COOKIE[self::MESSAGES_COOKIE_NAME];
-
-        $value_serialize = preg_replace('!s:(\d+):"(.*?)";!e', "'s:'.strlen('$2').':\"$2\";'", $value_serialize);
-
-        $value_arr = unserialize($value_serialize);
+        $value_arr = json_decode($value_serialize, true);
 
         return $value_arr;
     }

@@ -1,6 +1,7 @@
 {
   "name": "websk/php-utils",
   "require": {
+    "ext-json": "*",
     "websk/php-config": "1.0.*"
   },
   "autoload": {
