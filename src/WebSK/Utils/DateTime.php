@@ -272,4 +272,27 @@ class DateTime
 
         return $output;
     }
+
+    /**
+     * @param $timestamp
+     * @param \DateTimeZone|null $timezone_obj
+     * @return \DateTime
+     */
+    public static function createFromTimestamp($timestamp, ?\DateTimeZone $timezone_obj = null): \DateTime
+    {
+        $time_format = strpos($timestamp, '.') === false ? 'U' : 'U.u';
+        $datetime_obj = \DateTime::createFromFormat($time_format, $timestamp);
+        if (!$timezone_obj) {
+            /**
+             * @see https://php.net/manual/en/datetime.createfromformat.php Note for timezone param
+             * The timezone parameter and the current timezone are ignored when the time parameter either contains a
+             * UNIX timestamp (e.g. 946684800) or specifies a timezone (e.g. 2010-01-28T15:00:00+02:00).
+             */
+            $timezone_obj = new \DateTimeZone(date_default_timezone_get());
+        }
+
+        $datetime_obj->setTimezone($timezone_obj);
+
+        return $datetime_obj;
+    }
 }
