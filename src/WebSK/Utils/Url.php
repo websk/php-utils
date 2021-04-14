@@ -12,7 +12,7 @@ class Url
     /**
      * @return string
      */
-    public static function getUriNoQueryString()
+    public static function getUriNoQueryString(): string
     {
         $parts = array_key_exists('REQUEST_URI', $_SERVER) ? explode('?', $_SERVER['REQUEST_URI']) : [];
 
@@ -30,7 +30,7 @@ class Url
      * @param string $url
      * @return string
      */
-    public static function appendLeadingSlash(string $url)
+    public static function appendLeadingSlash(string $url): string
     {
         // append leading slash
         if (substr($url, 0, 5) != 'http:') {
@@ -46,7 +46,7 @@ class Url
      * @param string $url
      * @return string
      */
-    public static function appendHttp(string $url)
+    public static function appendHttp(string $url): string
     {
         $parsed = parse_url($url);
         if (empty($parsed['scheme'])) {

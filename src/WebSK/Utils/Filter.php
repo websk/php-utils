@@ -4,7 +4,7 @@ namespace WebSK\Utils;
 
 /**
  * Class Filter
- * @package Skif\Util
+ * @package WebSK\Utils
  */
 class Filter
 {
@@ -65,7 +65,7 @@ class Filter
      * @param string $real_url
      * @return bool
      */
-    public function matchesPage(string $real_url = '')
+    public function matchesPage(string $real_url = ''): bool
     {
         $page_url = Url::getUriNoQueryString();
 

@@ -12,7 +12,7 @@ class FullObjectId
      * @param $obj
      * @return null|string
      */
-    public static function getFullObjectId($obj)
+    public static function getFullObjectId($obj): ?string
     {
         if (is_null($obj)) {
             return null;
@@ -21,7 +21,8 @@ class FullObjectId
         if (!is_object($obj)) {
             return 'not_object';
         }
-        $obj_id_parts = array();
+
+        $obj_id_parts = [];
         $obj_id_parts[] = get_class($obj);
         if (method_exists($obj, 'getId')) {
             $obj_id_parts[] = $obj->getId();

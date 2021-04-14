@@ -4,7 +4,7 @@ namespace WebSK\Utils;
 
 /**
  * Class DateTime
- * @package Skif\Util
+ * @package WebSK\Utils
  */
 class DateTime
 {
@@ -33,9 +33,9 @@ class DateTime
      * @param int $month_format
      * @param int $year_format
      * @param string $separator
-     * @return int|string
+     * @return string
      */
-    public static function format(string $date, int $month_format, int $year_format, string $separator = ' ')
+    public static function format(string $date, int $month_format, int $year_format, string $separator = ' '): string
     {
         $months_formats =
             array(
@@ -105,7 +105,7 @@ class DateTime
      * @param int $year_format
      * @param string $separator
      * @param int $time_display
-     * @return bool|string
+     * @return string
      */
     public static function formatFromUnixTs(
         $unix_ts = '',
@@ -115,7 +115,7 @@ class DateTime
         int $year_format = self::YEAR_FULL,
         string $separator = ' ',
         int $time_display = self::TIME_DISPLAY_HIDE
-    ) {
+    ): string {
         $months_formats =
             array(
                 self::MONTH_SHORT => array(
@@ -208,7 +208,7 @@ class DateTime
      * @param int $time_second
      * @return int
      */
-    public static function getDeltaMinutesFromTwoUnixTimes(int $time_first, int $time_second)
+    public static function getDeltaMinutesFromTwoUnixTimes(int $time_first, int $time_second): int
     {
         $delta = $time_second - $time_first;
         $min = intval(($delta) / 60);
@@ -220,7 +220,7 @@ class DateTime
      * @param int $unix_ts
      * @return string
      */
-    public static function getDateTimeStr(int $unix_ts)
+    public static function getDateTimeStr(int $unix_ts): string
     {
         $output = "";
 

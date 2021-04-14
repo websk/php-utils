@@ -80,7 +80,7 @@ class FileUtils
      * @param string $file_path
      * @return bool
      */
-    public static function deleteFile(string $file_path)
+    public static function deleteFile(string $file_path): bool
     {
         $site_path = ConfWrapper::value('site_path');
 
@@ -123,7 +123,7 @@ class FileUtils
      * @param string $file_name
      * @return bool
      */
-    public static function checkFileName(string $file_name)
+    public static function checkFileName(string $file_name): bool
     {
         if (preg_match("/[^a-z0-9_-]/i", $file_name)) {
             return false;

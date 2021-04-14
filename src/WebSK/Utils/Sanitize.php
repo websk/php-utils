@@ -12,18 +12,16 @@ class Sanitize
      * @param null|string $value
      * @return string
      */
-    public static function sanitizeTagContent(?string $value)
+    public static function sanitizeTagContent(?string $value): string
     {
-        $value = htmlspecialchars($value);
-
-        return $value;
+        return htmlspecialchars($value);
     }
 
     /**
      * @param string $url
      * @return string
      */
-    public static function sanitizeUrl(string $url)
+    public static function sanitizeUrl(string $url): string
     {
         return filter_var($url, FILTER_SANITIZE_URL);
     }
@@ -32,7 +30,7 @@ class Sanitize
      * @param null|string $value
      * @return string
      */
-    public static function sanitizeAttrValue(?string $value)
+    public static function sanitizeAttrValue(?string $value): string
     {
         if (is_null($value)) {
             return '';
@@ -43,11 +41,10 @@ class Sanitize
 
     /**
      * @param string $column_name
-     * @return null|string|string[]
+     * @return string
      */
-    public static function sanitizeSqlColumnName(string $column_name){
-        $column_name = preg_replace("/[^a-zA-Z0-9_]+/", "", $column_name);
-
-        return $column_name;
+    public static function sanitizeSqlColumnName(string $column_name): string
+    {
+        return preg_replace("/[^a-zA-Z0-9_]+/", "", $column_name);
     }
 }

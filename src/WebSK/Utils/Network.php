@@ -4,7 +4,7 @@ namespace WebSK\Utils;
 
 /**
  * Class Network
- * @package Skif
+ * @package WebSK\Utils
  */
 class Network
 {
@@ -12,7 +12,7 @@ class Network
      * @param $ip
      * @return bool
      */
-    protected static function isPrivateNetwork(string $ip)
+    protected static function isPrivateNetwork(string $ip): bool
     {
         if (preg_match("/unknown/", $ip)) {
             return true;
@@ -81,7 +81,7 @@ class Network
     /**
      * @return string
      */
-    public static function getClientIpXff()
+    public static function getClientIpXff(): string
     {
         $remote_addr = $_SERVER['REMOTE_ADDR'];
 
@@ -103,7 +103,7 @@ class Network
     /**
      * @return string
      */
-    public static function getClientIpRemoteAddr()
+    public static function getClientIpRemoteAddr(): string
     {
         $remote_addr = $_SERVER['REMOTE_ADDR'];
 
@@ -111,12 +111,40 @@ class Network
     }
 
     /**
+     * @param string $net_or_ip
+     * @return bool
+     */
+    public static function isValidNetOrIp(string $net_or_ip): bool
+    {
+        $is_valid = preg_match('@^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(/([0-9]|[1-2][0-9]|3[0-2]))?$@', $net_or_ip);
+        return boolval($is_valid);
+    }
+
+    /**
+     * @param string $ip
+     * @return bool
+     */
+    public static function isValidIp(string $ip): bool
+    {
+        return ip2long($ip) !== false;
+    }
+
+    /**
+     * @param int $port
+     * @return bool
+     */
+    public static function isValidPort(int $port): bool
+    {
+        return ($port >= 0) && ($port <= 65535);
+    }
+
+    /**
      * Проверка IP на вхождение в диапазон по маске сети
-     * @param $ip
+     * @param string $ip
      * @param array $subnet_mask_arr
      * @return bool
      */
-    public static function checkIpBySubnetMask(string $ip, array $subnet_mask_arr)
+    public static function checkIpBySubnetMask(string $ip, array $subnet_mask_arr): bool
     {
         foreach ($subnet_mask_arr as $network) {
             if (empty($network)) {

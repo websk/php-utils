@@ -1,8 +1,10 @@
 {
   "name": "websk/php-utils",
+  "description": "PHP utils",
   "require": {
     "php": "^7.4",
     "ext-json": "*",
+    "ext-mbstring": "*",
     "websk/php-config": "1.0.*"
   },
   "autoload": {

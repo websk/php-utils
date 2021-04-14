@@ -3,8 +3,8 @@
 namespace WebSK\Utils;
 
 /**
- * Class Translit
- * @package Skif
+ * Class Transliteration
+ * @package WebSK\Utils
  */
 class Transliteration
 {
@@ -13,9 +13,9 @@ class Transliteration
      * Транслитерация строки
      * @param string $cyrillic_string
      * @param bool $remove_stop_words
-     * @return mixed|null|string|string[]
+     * @return string
      */
-    public static function transliteration(string $cyrillic_string, $remove_stop_words = true)
+    public static function transliteration(string $cyrillic_string, $remove_stop_words = true): string
     {
         $cyrillic_string = mb_strtolower($cyrillic_string, "UTF-8");
 
@@ -138,9 +138,9 @@ class Transliteration
     /**
      * Проверка на русские символы в строке
      * @param $text
-     * @return int
+     * @return bool
      */
-    public static function checkRussian($text)
+    public static function checkRussian($text): bool
     {
         $text = str_replace("\n", "", $text);
         $text = str_replace("\r", "", $text);

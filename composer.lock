@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "919ba858a8298a603448f9ade79663ed",
+    "content-hash": "bfe9abc9a0a04a77c464926e9b4c12cc",
     "packages": [
         {
             "name": "websk/php-config",
@@ -29,6 +29,10 @@
             "notification-url": "https://packagist.org/downloads/",
             "description": "PHP configs wrapper",
             "homepage": "https://websk.ru/",
+            "support": {
+                "issues": "https://github.com/websk/php-config/issues",
+                "source": "https://github.com/websk/php-config/tree/master"
+            },
             "time": "2018-12-03T15:24:53+00:00"
         }
     ],
@@ -38,6 +42,11 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": []
+    "platform": {
+        "php": "^7.4",
+        "ext-json": "*",
+        "ext-mbstring": "*"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

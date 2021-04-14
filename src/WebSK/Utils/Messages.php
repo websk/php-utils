@@ -64,7 +64,7 @@ class Messages
     /**
      * @return string
      */
-    public static function renderMessages()
+    public static function renderMessages(): string
     {
         $flash_messages_values_from_cookie_arr = self::getMessagesValuesFromCookieArr();
 
@@ -87,7 +87,7 @@ class Messages
     /**
      * @return array
      */
-    protected static function getMessagesValuesFromCookieArr()
+    protected static function getMessagesValuesFromCookieArr(): array
     {
         if (!isset($_COOKIE)) {
             return [];
