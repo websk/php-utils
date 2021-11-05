@@ -86,6 +86,24 @@ class HTTP
     const HEADER_PRAGMA = 'Pragma';
     const HEADER_ACCEPT_RANGES = 'Accept-Ranges';
 
+    const CHARSET_UTF8 = 'charset=utf-8';
+
+    const MIME_TEXT_PLAIN = 'text/plain';
+    const CONTENT_TYPE_TEXT_PLAIN_WITH_CHARSET_UTF8 = self::MIME_TEXT_PLAIN . ';' . self::CHARSET_UTF8;
+
+    const MIME_APPLICATION_OPENXMLFORMATS_SPREADSHEETML = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+    const CONTENT_TYPE_APPLICATION_OPENXMLFORMATS_SPREADSHEETML_WITH_CHARSET_UTF8 = self::MIME_APPLICATION_OPENXMLFORMATS_SPREADSHEETML . ';' . self::CHARSET_UTF8;
+
+    const MIME_TEXT_CSV = 'text/csv';
+    const CONTENT_TYPE_TEXT_CSV_WITH_CHARSET_UTF8 = self::MIME_TEXT_CSV . ';' . self::CHARSET_UTF8;
+
+    const MIME_TYPE_AUDIO_MP4 = 'audio/mp4';
+    const MIME_TYPE_APPLICATION_MP4 = 'application/mp4';
+    const MIME_TYPE_VIDEO_MP4 = 'video/mp4';
+
+    const HEADER_VALUE_NO_CACHE = 'no-cache';
+    const HEADER_VALUE_CACHE_CONTROL_MUST_REVALIDATE = 'must-revalidate, post-check=0, pre-check=0';
+
     public static function cacheHeaders()
     {
         $cache_sec = 60;
