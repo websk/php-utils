@@ -105,7 +105,7 @@ class Network
      */
     public static function getClientIpRemoteAddr(): string
     {
-        $remote_addr = $_SERVER['REMOTE_ADDR'];
+        $remote_addr = $_SERVER['REMOTE_ADDR'] ?? '';
 
         return $remote_addr;
     }
