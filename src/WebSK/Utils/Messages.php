@@ -54,9 +54,9 @@ class Messages
     }
 
     /**
-     * @param $message
+     * @param string $message
      */
-    public static function setMessage($message)
+    public static function setMessage(string $message)
     {
         self::setMessageValue(self::MESSAGE_TYPE_SUCCESS, $message);
     }
@@ -99,6 +99,10 @@ class Messages
 
         $value_serialize = $_COOKIE[self::MESSAGES_COOKIE_NAME];
         $value_arr = json_decode($value_serialize, true);
+
+        if (!is_array($value_arr)) {
+            return [];
+        }
 
         return $value_arr;
     }
