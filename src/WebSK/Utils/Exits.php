@@ -9,9 +9,6 @@ namespace WebSK\Utils;
 class Exits
 {
 
-    /**
-     * @param $exit_condition
-     */
     public static function exit404If($exit_condition)
     {
         if (!$exit_condition) {
@@ -20,6 +17,7 @@ class Exits
 
         self::exit404();
     }
+
 
     public static function exit404()
     {

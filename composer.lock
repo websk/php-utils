@@ -4,21 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfe9abc9a0a04a77c464926e9b4c12cc",
+    "content-hash": "39b3af7bdaff664e01c2c278cf845763",
     "packages": [
         {
             "name": "websk/php-config",
-            "version": "1.0.2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/websk/php-config.git",
-                "reference": "806f75eafc1536c2543f383875503f12c72bcfe3"
+                "reference": "57f0481617988daffea45ef871f78a09dc58f233"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/websk/php-config/zipball/806f75eafc1536c2543f383875503f12c72bcfe3",
-                "reference": "806f75eafc1536c2543f383875503f12c72bcfe3",
+                "url": "https://api.github.com/repos/websk/php-config/zipball/57f0481617988daffea45ef871f78a09dc58f233",
+                "reference": "57f0481617988daffea45ef871f78a09dc58f233",
                 "shasum": ""
+            },
+            "require": {
+                "php": "^8.3"
             },
             "type": "library",
             "autoload": {
@@ -31,9 +34,9 @@
             "homepage": "https://websk.ru/",
             "support": {
                 "issues": "https://github.com/websk/php-config/issues",
-                "source": "https://github.com/websk/php-config/tree/master"
+                "source": "https://github.com/websk/php-config/tree/2.0.0"
             },
-            "time": "2018-12-03T15:24:53+00:00"
+            "time": "2024-08-08T07:17:03+00:00"
         }
     ],
     "packages-dev": [],
@@ -43,10 +46,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4",
+        "php": "^8.3",
         "ext-json": "*",
         "ext-mbstring": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.3.0"
 }

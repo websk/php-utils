@@ -9,19 +9,19 @@ namespace WebSK\Utils;
 class Filter
 {
     /** @var bool */
-    public $is_positive;
+    public bool $is_positive = false;
 
     /** @var bool */
-    public $is_negative;
+    public bool $is_negative = false;
 
     /** @var string */
-    public $mask;
+    public string $mask = '';
 
     /** @var string */
-    public $sign;
+    public string $sign = '';
 
     /** @var string */
-    public $target_url;
+    public string $target_url = '';
 
     /**
      * Filter constructor.
@@ -29,16 +29,6 @@ class Filter
      */
     public function __construct(string $filter_str)
     {
-        $this->is_positive = false;
-        $this->is_negative = false;
-        $this->mask = '';
-        $this->sign = '';
-        $this->target_url = '';
-
-        // TODO: check filter format
-
-        // process sign
-
         $this->sign = substr($filter_str, 0, 1);
 
         if ($this->sign == '+') {
@@ -48,8 +38,6 @@ class Filter
         if ($this->sign == '-') {
             $this->is_negative = true;
         }
-
-        // process mask and url
 
         $mask_source = substr($filter_str, 2);
         $mask_source_arr = explode('=>', $mask_source);

@@ -8,11 +8,11 @@ namespace WebSK\Utils;
  */
 class Messages
 {
-    const MESSAGES_COOKIE_NAME = 'websk_flash_messages';
+    const string MESSAGES_COOKIE_NAME = 'websk_flash_messages';
 
-    const MESSAGE_TYPE_ERROR = 'danger';
-    const MESSAGE_TYPE_WARNING = 'warning';
-    const MESSAGE_TYPE_SUCCESS = 'success';
+    const string MESSAGE_TYPE_ERROR = 'danger';
+    const string MESSAGE_TYPE_WARNING = 'warning';
+    const string MESSAGE_TYPE_SUCCESS = 'success';
 
     /**
      * @param string $message_type

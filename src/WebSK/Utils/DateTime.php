@@ -8,25 +8,25 @@ namespace WebSK\Utils;
  */
 class DateTime
 {
-    const DAY_FULL = 1;
-    const DAY_SHORT = 2;
-    const DAY_NO = 3;
+    const int DAY_FULL = 1;
+    const int DAY_SHORT = 2;
+    const int DAY_NO = 3;
 
-    const MONTH_SHORT = 1;
-    const MONTH_FULL = 2;
-    const MONTH_DIGIT = 3;
-    const MONTH_NODAY = 4;
+    const int MONTH_SHORT = 1;
+    const int MONTH_FULL = 2;
+    const int MONTH_DIGIT = 3;
+    const int MONTH_NODAY = 4;
 
-    const YEAR_DISPLAY_AUTO = 1;
-    const YEAR_DISPLAY_SHOW = 2;
-    const YEAR_DISPLAY_HIDE = 3;
+    const int YEAR_DISPLAY_AUTO = 1;
+    const int YEAR_DISPLAY_SHOW = 2;
+    const int YEAR_DISPLAY_HIDE = 3;
 
-    const YEAR_SHORT = 1;
-    const YEAR_FULL = 2;
-    const YEAR_NO = 3;
+    const int YEAR_SHORT = 1;
+    const int YEAR_FULL = 2;
+    const int YEAR_NO = 3;
 
-    const TIME_DISPLAY_SHOW = 1;
-    const TIME_DISPLAY_HIDE = 2;
+    const int TIME_DISPLAY_SHOW = 1;
+    const int TIME_DISPLAY_HIDE = 2;
 
     /**
      * @param string $date
@@ -67,10 +67,10 @@ class DateTime
                     'ноября',
                     'декабря'
                 ),
-                self::MONTH_DIGIT => array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'),
+                self::MONTH_DIGIT => ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
             );
 
-        $matches = array();
+        $matches = [];
 
         preg_match('#(?P<year>\d{4})(?P<month>\d{2})(?P<day>\d{2})#', $date, $matches);
 
@@ -98,7 +98,7 @@ class DateTime
      * Форматирует дату и время. Принимает unix time. По-умолчанию отдает дату в формате "20 апр".
      * Можно указать флаги форматирования дня (day_format), месяца (month_format) и года (year_format), разделитель (separator).
      * По-умолчанию год не выводится, force_year разрешает вывод года
-     * @param string $unix_ts
+     * @param ?int $unix_ts
      * @param int $day_format
      * @param int $month_format
      * @param int $year_display
@@ -108,7 +108,7 @@ class DateTime
      * @return string
      */
     public static function formatFromUnixTs(
-        $unix_ts = '',
+        int $unix_ts = null,
         int $day_format = self::DAY_FULL,
         int $month_format = self::MONTH_SHORT,
         int $year_display = self::YEAR_DISPLAY_AUTO,
