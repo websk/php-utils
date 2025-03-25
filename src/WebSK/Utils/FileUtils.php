@@ -2,8 +2,6 @@
 
 namespace WebSK\Utils;
 
-use WebSK\Config\ConfWrapper;
-
 /**
  * Class FileUtils
  * @package WebSK\Utils
@@ -13,7 +11,7 @@ class FileUtils
     /**
      * @param string $file_path
      */
-    public static function renderFileContent(string $file_path)
+    public static function renderFileContent(string $file_path): string
     {
         $file_info = new \SplFileInfo($file_path);
 
@@ -31,66 +29,6 @@ class FileUtils
         header(HTTP::HEADER_CONTENT_LENGTH . ": " . $download_size);
 
         readfile($file_path);
-    }
-
-    /**
-     * Загрузка файла на сервер
-     * @param string $path
-     * @param string $file_name
-     * @return bool|string
-     */
-    public static function uploadFile(string $path, string $file_name = '')
-    {
-        $file = array_key_exists('file', $_FILES) ? $_FILES['file'] : null;
-
-        if (!$file) {
-            return false;
-        }
-
-        $file_tmp_path = ConfWrapper::value('tmp_path') . DIRECTORY_SEPARATOR . $file['name'];
-        move_uploaded_file($file['tmp_name'], $file_tmp_path);
-
-        $file_info = new \SplFileInfo($file_tmp_path);
-
-        if (!$file_info->isFile()) {
-            return false;
-        }
-
-        if ($file_name) {
-            $file_name .= '.' . $file_info->getExtension();
-        } else {
-            $file_name = $file['name'];
-        }
-
-        $site_path = ConfWrapper::value('site_path');
-
-        if (file_exists($site_path . $path . DIRECTORY_SEPARATOR . $file_name)) {
-            unlink($site_path . $path . DIRECTORY_SEPARATOR . $file_name);
-        }
-
-        copy($file_tmp_path, $site_path . $path . DIRECTORY_SEPARATOR . $file_name);
-
-        unlink($file_tmp_path);
-
-        return $file_name;
-    }
-
-    /**
-     * Удаление файла
-     * @param string $file_path
-     * @return bool
-     */
-    public static function deleteFile(string $file_path): bool
-    {
-        $site_path = ConfWrapper::value('site_path');
-
-        if (!file_exists($site_path . $file_path)) {
-            return false;
-        }
-
-        unlink($site_path . $file_path);
-
-        return true;
     }
 
     /**

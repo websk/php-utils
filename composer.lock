@@ -4,45 +4,12 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "39b3af7bdaff664e01c2c278cf845763",
-    "packages": [
-        {
-            "name": "websk/php-config",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/websk/php-config.git",
-                "reference": "57f0481617988daffea45ef871f78a09dc58f233"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/websk/php-config/zipball/57f0481617988daffea45ef871f78a09dc58f233",
-                "reference": "57f0481617988daffea45ef871f78a09dc58f233",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "PHP configs wrapper",
-            "homepage": "https://websk.ru/",
-            "support": {
-                "issues": "https://github.com/websk/php-config/issues",
-                "source": "https://github.com/websk/php-config/tree/2.0.0"
-            },
-            "time": "2024-08-08T07:17:03+00:00"
-        }
-    ],
+    "content-hash": "3bec3da673e274a8ca9b171baf0c1c89",
+    "packages": [],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
@@ -50,6 +17,6 @@
         "ext-json": "*",
         "ext-mbstring": "*"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }

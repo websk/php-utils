@@ -18,7 +18,7 @@ class Messages
      * @param string $message_type
      * @param string $value
      */
-    protected static function setMessageValue(string $message_type, string $value)
+    protected static function setMessageValue(string $message_type, string $value): void
     {
         $flash_messages_values_from_cookie_arr = self::getMessagesValuesFromCookieArr();
 
@@ -40,7 +40,7 @@ class Messages
     /**
      * @param string $message
      */
-    public static function setError(string $message)
+    public static function setError(string $message): void
     {
         self::setMessageValue(self::MESSAGE_TYPE_ERROR, $message);
     }
@@ -48,7 +48,7 @@ class Messages
     /**
      * @param string $message
      */
-    public static function setWarning(string $message)
+    public static function setWarning(string $message): void
     {
         self::setMessageValue(self::MESSAGE_TYPE_WARNING, $message);
     }
@@ -56,7 +56,7 @@ class Messages
     /**
      * @param string $message
      */
-    public static function setMessage(string $message)
+    public static function setMessage(string $message): void
     {
         self::setMessageValue(self::MESSAGE_TYPE_SUCCESS, $message);
     }

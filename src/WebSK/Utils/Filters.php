@@ -25,10 +25,10 @@ class Filters
     /**
      * @deprecated
      * TODO: \WebSK\Utils\Sanitize
-     * @param mixed $text
+     * @param string $text
      * @return string
      */
-    public static function checkPlain($text): string
+    public static function checkPlain(string $text): string
     {
         return htmlspecialchars($text, ENT_QUOTES, 'UTF-8', false);
     }

@@ -9,7 +9,7 @@ namespace WebSK\Utils;
 class Network
 {
     /**
-     * @param $ip
+     * @param string $ip
      * @return bool
      */
     protected static function isPrivateNetwork(string $ip): bool

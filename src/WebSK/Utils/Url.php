@@ -67,7 +67,7 @@ class Url
      * @param string $url
      * @return false|string
      */
-    public static function filterUrl(string $url)
+    public static function filterUrl(string $url): mixed
     {
         $filtered_url = filter_var($url, FILTER_SANITIZE_URL);
         return filter_var($filtered_url, FILTER_VALIDATE_URL);

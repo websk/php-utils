@@ -4,8 +4,7 @@
   "require": {
     "php": "^8.3",
     "ext-json": "*",
-    "ext-mbstring": "*",
-    "websk/php-config": "2.0.*"
+    "ext-mbstring": "*"
   },
   "autoload": {
     "psr-4": {
