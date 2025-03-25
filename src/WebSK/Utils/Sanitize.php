@@ -14,6 +14,10 @@ class Sanitize
      */
     public static function sanitizeTagContent(?string $value): string
     {
+        if (is_null($value)) {
+            return '';
+        }
+
         return htmlspecialchars($value);
     }
 

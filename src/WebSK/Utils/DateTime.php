@@ -108,7 +108,7 @@ class DateTime
      * @return string
      */
     public static function formatFromUnixTs(
-        int $unix_ts = null,
+        ?int $unix_ts = null,
         int $day_format = self::DAY_FULL,
         int $month_format = self::MONTH_SHORT,
         int $year_display = self::YEAR_DISPLAY_AUTO,
