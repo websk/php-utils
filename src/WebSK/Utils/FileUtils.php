@@ -11,7 +11,7 @@ class FileUtils
     /**
      * @param string $file_path
      */
-    public static function renderFileContent(string $file_path): string
+    public static function renderFileContent(string $file_path): void
     {
         $file_info = new \SplFileInfo($file_path);
 
@@ -35,7 +35,7 @@ class FileUtils
      * Удаление каталога с подкаталогами и файлами
      * @param string $directory
      */
-    public static function deleteDir(string $directory)
+    public static function deleteDir(string $directory): void
     {
         if (!is_dir($directory)) {
             return;

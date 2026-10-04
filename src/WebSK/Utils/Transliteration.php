@@ -155,7 +155,7 @@ class Transliteration
         $text = str_replace("-", "", $text);
         $text = str_replace(" ", "", $text);
 
-        $patern = "|^[-а-я]+$|i";
+        $patern = "|^[-а-я]+$|iu";
 
         if (preg_match($patern, $text)) {
             return true;
